@@ -1,0 +1,1 @@
+# equipe-j-theme-responsive-widget
