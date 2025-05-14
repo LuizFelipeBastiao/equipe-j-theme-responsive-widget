@@ -26,29 +26,29 @@ class _PaginaInicial extends State<Paginainicial> {
         backgroundColor: const Color.fromARGB(255, 224, 218, 18),
         flexibleSpace: Column(
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 IconButton(
                   onPressed: openDrawer,
-                  icon: Icon(Icons.menu_open, size: 40,),
+                  icon: const Icon(Icons.menu_open, size: 40,),
                 ),
-                SizedBox(width: 30),
-                Text('Equipe 7', style: TextStyle(fontSize: 40)),
-                SizedBox(width: 175),
-                Icon(Icons.account_box, size: 50),
-                SizedBox(width: 30),
+                const SizedBox(width: 30),
+                const Text('Equipe 7', style: TextStyle(fontSize: 40)),
+                const SizedBox(width: 175),
+                const Icon(Icons.account_box, size: 50),
+                const SizedBox(width: 30),
               ],
             ),
           ],
         ),
       ),
       drawer: Container(
-        constraints: BoxConstraints(maxWidth: 250),
-        color: Color.fromARGB(255, 187, 171, 171),
+        constraints: const BoxConstraints(maxWidth: 250),
+        color: const Color.fromARGB(255, 187, 171, 171),
         child: ListView(
-          children: [
+          children: const [
             SizedBox(height: 50),
             Text('Inicio'),
             Text('Meio'),

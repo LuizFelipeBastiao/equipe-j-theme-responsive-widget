@@ -30,27 +30,61 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  onboarding: ^4.0.2
+  flutter_lints: ^2.0.0
+  lottie: ^2.3.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
 
+  flutter_native_splash: ^2.2.12 
+
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^2.2.12 
 
+flutter_native_splash:
+    android : true
+    ios : true
+    
+    background_image: assets/images/logo.png
+    android_12:
+      image: assets/images/logo.png
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
+  fonts:
+    - family: Squarish
+      fonts:
+        - asset: assets/fonts/ZF2334Squarish-Regular.otf
+    - family: Remix
+      fonts:
+        - asset: assets/fonts/Remix.ttf
+    - family: Outfielder
+      fonts:
+        - asset: assets/fonts/Outfielder-Personal-Use.ttf
+    - family: Academic
+      fonts:
+        - asset: assets/fonts/Academic M54.ttf
+    - family: Aesthetic
+      fonts:
+        - asset: assets/fonts/Aesthetic Moment  Italic Personal Used.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
