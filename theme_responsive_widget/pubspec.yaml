@@ -54,9 +54,9 @@ flutter_native_splash:
     android : true
     ios : true
     
-    background_image: assets/images/logo.png
+    background_image: assets/images/e7_2.png
     android_12:
-      image: assets/images/logo.png
+      image: assets/images/e7_2.png
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -92,8 +92,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/animations/hand3.json
+    - assets/animations/theme.json
+    - assets/animations/thumbsup.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
