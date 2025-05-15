@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:theme_responsive_widget/common/colors/colors_const.dart';
+import 'package:theme_responsive_widget/models/user_model.dart';
 
 class LoginFormButton extends StatelessWidget {
   final GlobalKey<FormState> formKey;
-  final Function(BuildContext context) handleLoginFailed;
-  final Function toggleLoading;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final Function(
+    BuildContext context,
+    GlobalKey<FormState> formKey,
+    UserModel payload,
+  )
+  verifyLogin;
 
   const LoginFormButton({
     super.key,
     required this.formKey,
-    required this.handleLoginFailed,
-    required this.toggleLoading,
+    required this.verifyLogin,
+    required this.emailController,
+    required this.passwordController,
   });
 
   @override
@@ -28,17 +36,12 @@ class LoginFormButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 70),
       ),
       onPressed: () {
-        toggleLoading();
-        Future.delayed(const Duration(milliseconds: 2000)).then((_) {
-          if (context.mounted) {
-            toggleLoading();
-            if (formKey.currentState!.validate()) {
-              print('Login successful');
-            } else {
-              handleLoginFailed(context);
-            }
-          }
-        });
+        final payload = UserModel(
+          email: emailController.text,
+          password: passwordController.text,
+        );
+        
+        verifyLogin(context, formKey, payload);
       },
       child: const Text(
         'Entrar',

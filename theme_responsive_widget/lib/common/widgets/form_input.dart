@@ -9,6 +9,7 @@ class FormInput extends StatelessWidget {
   final double? inputWidth;
   final double? inputHeight;
   final String? Function(String?)? validate;
+  final TextEditingController inputController;
 
   const FormInput({
     super.key,
@@ -19,6 +20,7 @@ class FormInput extends StatelessWidget {
     this.inputWidth,
     this.inputHeight,
     this.validate,
+    required this.inputController,
   });
 
   @override
@@ -26,6 +28,7 @@ class FormInput extends StatelessWidget {
     return SizedBox(
       width: inputWidth ?? MediaQuery.of(context).size.width,
       child: TextFormField(
+        controller: inputController,
         validator: (value) => validate != null ? validate!(value) : null,
         obscureText: isObscure ?? false,
         style:

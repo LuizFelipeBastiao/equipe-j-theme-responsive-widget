@@ -10,7 +10,7 @@ class AppInitData {
     const defaultEmail = 'teste@email.com';
     const defaultPassword = '123456';
 
-    final existingUser = await UserDao.getUserByEmail(defaultEmail);
+    final existingUser = UserDao.getUserByEmail(defaultEmail);
     if (existingUser == null) {
       final user = UserModel(email: defaultEmail, password: defaultPassword);
       await UserDao.insertUser(user);

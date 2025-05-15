@@ -5,11 +5,15 @@ import 'package:theme_responsive_widget/common/themes/theme_controller.dart';
 class LoginFormInputs extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final ThemeController themeController;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
 
   const LoginFormInputs({
     Key? key,
     required this.formKey,
     required this.themeController,
+    required this.emailController,
+    required this.passwordController,
   }) : super(key: key);
 
   @override
@@ -22,6 +26,7 @@ class LoginFormInputs extends StatelessWidget {
       child: Column(
         children: [
           FormInput(
+            inputController: emailController,
             inputWidth: (width * 0.8) * 0.8,
             labelText: 'Email',
             hintText: 'example@example.com',
@@ -40,6 +45,7 @@ class LoginFormInputs extends StatelessWidget {
           ),
           SizedBox(height: (height * 0.6) * 0.02),
           FormInput(
+            inputController: passwordController,
             inputWidth: (width * 0.8) * 0.8,
             labelText: 'Senha',
             hintText: '********',

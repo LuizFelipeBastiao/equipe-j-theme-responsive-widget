@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:theme_responsive_widget/common/themes/theme_controller.dart';
+import 'package:theme_responsive_widget/models/user_model.dart';
 import 'package:theme_responsive_widget/pages/login/form/login_form_button.dart';
 import 'package:theme_responsive_widget/pages/login/form/login_form_inputs.dart';
 import 'package:theme_responsive_widget/common/widgets/span_link_text.dart';
 
 class LoginForm extends StatefulWidget {
   final ThemeController themeController;
-  final Function(BuildContext context) handleLoginFailed;
-  final Function toggleLoading;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final Function(
+    BuildContext context,
+    GlobalKey<FormState> formKey,
+    UserModel payload,
+  )
+  verifyLogin;
 
-  const LoginForm({
+  LoginForm({
     super.key,
     required this.themeController,
-    required this.handleLoginFailed,
-    required this.toggleLoading,
+    required this.verifyLogin,
   });
 
   @override
@@ -90,6 +96,8 @@ class _LoginFormState extends State<LoginForm> with TickerProviderStateMixin {
                           child: LoginFormInputs(
                             formKey: formKey,
                             themeController: widget.themeController,
+                            emailController: widget.emailController,
+                            passwordController: widget.passwordController,
                           ),
                         ),
                         SizedBox(
@@ -97,8 +105,9 @@ class _LoginFormState extends State<LoginForm> with TickerProviderStateMixin {
                             children: [
                               LoginFormButton(
                                 formKey: formKey,
-                                handleLoginFailed: widget.handleLoginFailed,
-                                toggleLoading: widget.toggleLoading,
+                                verifyLogin: widget.verifyLogin,
+                                emailController: widget.emailController,
+                                passwordController: widget.passwordController,
                               ),
                               const SizedBox(height: 10),
                               SpanLinkText(
