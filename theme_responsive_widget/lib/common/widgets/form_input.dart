@@ -30,7 +30,7 @@ class FormInput extends StatelessWidget {
         obscureText: isObscure ?? false,
         style:
             theme?.textTheme.bodyMedium ??
-            TextStyle(fontSize: 14, color: Color(0xFFFFFFFF)),
+            const TextStyle(fontSize: 14, color: Color(0xFFFFFFFF)),
         decoration: InputDecoration(
           errorStyle: const TextStyle(
             fontSize: 12,

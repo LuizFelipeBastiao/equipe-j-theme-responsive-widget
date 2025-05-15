@@ -15,6 +15,7 @@ class ColorsConst {
   static const Color errorInputBorderColor = Color(0xFF840000);
   static const Color errorColor = Color.fromARGB(255, 199, 0, 0);
   static const Color layer = Color(0x75000000);
+  static const Color darkSmallTextColor = Color.fromARGB(255, 147, 147, 147);
   static const List<Color> gradientColors = [
     Color(0xFF772ce8),
     Color.fromARGB(255, 88, 33, 171),
