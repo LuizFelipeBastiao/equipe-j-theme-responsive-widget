@@ -1,0 +1,14 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Install Dependencies
+    init: flutter pub get
+
+vscode:
+  extensions:
+    - dart-code.flutter
+
+ports:
+  - port: 3000
+    onOpen: open-preview
