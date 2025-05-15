@@ -42,9 +42,36 @@ Siga os passos abaixo para rodar o aplicativo Flutter localmente:
    - Acesse o [GitPod](https://gitpod.io/#https://github.com/LuizFelipeBastiao/equipe-j-theme-responsive-widget)
    - O ambiente já vem configurado com Flutter.
    - Use o terminal do Gitpod para rodar:
-     ```bash
+   ```bash
     flutter pub get
     flutter run
    ```
 7. Estrutura:
    - Veja abaixo:
+
+   ```bash
+      lib/
+      ├── common/
+      │ ├── colors/
+      │ │ └── colors_const.dart
+      │ ├── themes/
+      │ │ ├── theme_controller.dart
+      │ │ ├── theme_data_dark.dart
+      │ │ └── theme_data_light.dart
+      │ └── widgets/
+      │ ├── loading_spinner.dart
+      │ └── switch_theme_button.dart
+      ├── data/
+      │ └── user_dao.dart
+      ├── models/
+      │ └── user_model.dart
+      ├── pages/
+      │ ├── home/
+      │ │ └── home_page.dart
+      │ ├── login/
+      │ │ ├── form/
+      │ │ │ └── login_form.dart
+      │ │ └── login_page.dart
+      │ └── splash/
+      │ └── splash_page.dart
+   ```
