@@ -1,16 +1,50 @@
 # theme_responsive_widget
 
-A new Flutter project.
+Este é um projeto Flutter que visa oferecer uma experiência de usuário fluida e moderna, com foco em responsividade e personalização visual. As principais funcionalidades do app incluem:
 
-## Getting Started
+- Containers animados que proporcionam transições suaves e interativas.
+- Tela de Onboarding para guiar novos usuários e apresentar as funcionalidades principais do app.
+- Troca dinâmica de tema, permitindo alternar entre modo claro e escuro em tempo real.
+- Splash screen nativa, garantindo uma abertura elegante do aplicativo enquanto os recursos são carregados.
+- Roteamento estruturado para navegação entre telas, incluindo login, home e outras seções.
+- Funcionalidade de login com validação de credenciais.
+- Recuperação e troca de senha, facilitando o acesso dos usuários que esqueceram suas credenciais.
 
-This project is a starting point for a Flutter application.
+A estrutura do projeto é organizada para facilitar a manutenção, reutilização e escalabilidade, separando claramente temas, cores, widgets comuns, modelos de dados e páginas.
 
-A few resources to get you started if this is your first Flutter project:
+## Como rodar o projeto
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Siga os passos abaixo para rodar o aplicativo Flutter localmente:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Certifique-se de que o [Flutter SDK](https://flutter.dev/docs/get-started/install) está instalado no seu computador.
+
+2. Clone este repositório:
+   ```bash
+   git clone https://github.com/LuizFelipeBastiao/equipe-j-theme-responsive-widget.git
+   ```
+
+3. Entre na pasta do projeto:
+   ```bash
+   cd equipe-j-theme-responsive-widget/theme_responsive_widget
+   ```
+   
+4. Instale as dependências do Flutter:
+   ```bash
+   flutter pub get
+   ```
+   
+5. Rode o projeto:
+   ```bash
+   flutter run
+   ```
+
+6. Você pode optar também:
+   - Acesse o [GitPod](https://gitpod.io/#https://github.com/LuizFelipeBastiao/equipe-j-theme-responsive-widget)
+   - O ambiente já vem configurado com Flutter.
+   - Use o terminal do Gitpod para rodar:
+     ```bash
+    flutter pub get
+    flutter run
+   ```
+7. Estrutura:
+   - Veja abaixo:
