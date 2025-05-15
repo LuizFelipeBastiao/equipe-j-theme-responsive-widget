@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:theme_responsive_widget/common/colors/colors_const.dart';
 
-class LoginButton extends StatelessWidget {
+class LoginFormButton extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final Function(BuildContext context) handleLoginFailed;
+  final Function toggleLoading;
 
-  const LoginButton({
+  const LoginFormButton({
     super.key,
     required this.formKey,
     required this.handleLoginFailed,
+    required this.toggleLoading,
   });
 
   @override
@@ -26,15 +28,22 @@ class LoginButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 70),
       ),
       onPressed: () {
-        if (formKey.currentState!.validate()) {
-          print('Login successful');
-        } else {
-          handleLoginFailed(context);
-        }
+        toggleLoading();
+        Future.delayed(const Duration(milliseconds: 2000)).then((_) {
+          if (context.mounted) {
+            toggleLoading();
+            if (formKey.currentState!.validate()) {
+              print('Login successful');
+            } else {
+              handleLoginFailed(context);
+            }
+          }
+        });
       },
-      child: Text(
+      child: const Text(
         'Entrar',
         style: TextStyle(
+          fontFamily: 'Poppins',
           color: ColorsConst.whiteTextColor,
           fontSize: 15,
           fontWeight: FontWeight.bold,

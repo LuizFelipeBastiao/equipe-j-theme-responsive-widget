@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:theme_responsive_widget/common/themes/theme_controller.dart';
-import 'package:theme_responsive_widget/pages/login/form/login_button.dart';
+import 'package:theme_responsive_widget/pages/login/form/login_form_button.dart';
 import 'package:theme_responsive_widget/pages/login/form/login_form_inputs.dart';
+import 'package:theme_responsive_widget/common/widgets/span_link_text.dart';
 
 class LoginForm extends StatefulWidget {
   final ThemeController themeController;
   final Function(BuildContext context) handleLoginFailed;
+  final Function toggleLoading;
 
   const LoginForm({
     super.key,
     required this.themeController,
     required this.handleLoginFailed,
+    required this.toggleLoading,
   });
 
   @override
@@ -89,14 +92,40 @@ class _LoginFormState extends State<LoginForm> with TickerProviderStateMixin {
                             themeController: widget.themeController,
                           ),
                         ),
-                        LoginButton(
-                          formKey: formKey,
-                          handleLoginFailed: widget.handleLoginFailed,
+                        SizedBox(
+                          child: Column(
+                            children: [
+                              LoginFormButton(
+                                formKey: formKey,
+                                handleLoginFailed: widget.handleLoginFailed,
+                                toggleLoading: widget.toggleLoading,
+                              ),
+                              const SizedBox(height: 10),
+                              SpanLinkText(
+                                textSpan: 'Esqueceu a senha? ',
+                                textLink: 'Recuperar',
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    '/forgot-password',
+                                  );
+                                },
+                              ),
+                              const SizedBox(height: 50),
+                              SpanLinkText(
+                                textSpan: 'Ainda não tem uma conta? ',
+                                textLink: 'Registrar',
+                                onTap: () {
+                                  Navigator.pushNamed(context, '/register');
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
                   )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
         );
       },
     );

@@ -7,8 +7,9 @@ class DarkTheme {
     scaffoldBackgroundColor: ColorsConst.darkBgColor,
     textTheme: const TextTheme(
       titleMedium: TextStyle(
+        fontFamily: 'Poppins',
         color: Color(0xFFD1B3FF),
-        fontSize: 35,
+        fontSize: 45,
         fontWeight: FontWeight.bold,
       ),
       bodyMedium: TextStyle(
@@ -16,8 +17,14 @@ class DarkTheme {
         fontSize: 15,
         fontWeight: FontWeight.w400,
       ),
+      bodySmall: TextStyle(
+        fontFamily: 'Poppins',
+        color: ColorsConst.darkSmallTextColor,
+        fontSize: 11,
+        fontWeight: FontWeight.w600,
+      ),
       labelMedium: TextStyle(
-        color: ColorsConst.darkThemeLabelTextColor,
+        color: ColorsConst.darkThemeInputText,
         fontSize: 15,
         fontWeight: FontWeight.w500,
       ),
@@ -33,9 +40,7 @@ class DarkTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: ColorsConst.primaryColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
     ),
   );

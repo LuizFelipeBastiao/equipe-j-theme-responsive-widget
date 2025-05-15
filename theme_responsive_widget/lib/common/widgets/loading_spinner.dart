@@ -11,10 +11,10 @@ class LoadingSpinner extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: ColorsConst.layer,
       ),
-      child: Center(
+      child: const Center(
         child: CircularProgressIndicator(
           color: ColorsConst.primaryColor,
           strokeWidth: 5,

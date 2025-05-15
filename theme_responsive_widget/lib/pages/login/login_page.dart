@@ -21,21 +21,16 @@ class _LoginPageState extends State<LoginPage> {
     setState(() => isLoading = !isLoading);
   }
 
+  // Simulação falha de login
   handleLoginFailed(BuildContext context) {
-    toggleLoading();
-
-    Future.delayed(const Duration(milliseconds: 2000)).then((_) {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Ocorreu um erro! Verifique os campos.'),
-            backgroundColor: ColorsConst.errorColor,
-          ),
-        );
-
-        toggleLoading();
-      }
-    });
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Ocorreu um erro! Verifique os campos.'),
+          backgroundColor: ColorsConst.errorColor,
+        ),
+      );
+    }
   }
 
   @override
@@ -47,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
         body: Container(
           width: width,
           height: height,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: ColorsConst.gradientColors,
               begin: Alignment.topCenter,
@@ -60,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: LoginForm(
                   themeController: widget.themeController,
                   handleLoginFailed: handleLoginFailed,
+                  toggleLoading: toggleLoading,
                 ),
               ),
               Align(
@@ -70,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              if (isLoading) LoadingSpinner(),
+              if (isLoading) const LoadingSpinner(),
             ],
           ),
         ),
