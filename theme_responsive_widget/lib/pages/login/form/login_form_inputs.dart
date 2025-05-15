@@ -28,7 +28,6 @@ class LoginFormInputs extends StatelessWidget {
           FormInput(
             inputController: emailController,
             inputWidth: (width * 0.8) * 0.8,
-            labelText: 'Email',
             hintText: 'example@example.com',
             theme: themeController.themeNotifier.value,
             validate: (value) {
@@ -47,7 +46,6 @@ class LoginFormInputs extends StatelessWidget {
           FormInput(
             inputController: passwordController,
             inputWidth: (width * 0.8) * 0.8,
-            labelText: 'Senha',
             hintText: '********',
             theme: themeController.themeNotifier.value,
             isObscure: true,

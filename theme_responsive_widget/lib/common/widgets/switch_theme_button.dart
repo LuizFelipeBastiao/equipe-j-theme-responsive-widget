@@ -8,6 +8,7 @@ class SwitchThemeButton extends StatefulWidget {
 
   @override
   State<SwitchThemeButton> createState() => _SwitchThemeButtonState();
+
 }
 
 class _SwitchThemeButtonState extends State<SwitchThemeButton> {
@@ -40,15 +41,15 @@ class _SwitchThemeButtonState extends State<SwitchThemeButton> {
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        width: 60,
-        height: 30,
+        width: 65,
+        height: 35,
         padding: const EdgeInsets.all(4),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(20),
           color:
               isDark
                   ? const Color(0x832B2B2B)
-                  : const Color.fromARGB(106, 255, 255, 255),
+                  : const Color.fromARGB(106, 187, 187, 187),
         ),
         child: AnimatedAlign(
           duration: const Duration(milliseconds: 300),
@@ -62,7 +63,7 @@ class _SwitchThemeButtonState extends State<SwitchThemeButton> {
             ),
             child: Icon(
               isDark ? Icons.dark_mode : Icons.light_mode,
-              size: 16,
+              size: 18,
               color: isDark ? Colors.white : Colors.black,
             ),
           ),

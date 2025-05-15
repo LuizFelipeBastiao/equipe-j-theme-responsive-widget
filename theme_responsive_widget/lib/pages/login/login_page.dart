@@ -19,12 +19,62 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool isLoading = false;
 
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _showHint();
+    });
+
+    widget.themeController.themeNotifier.addListener(_onThemeChanged);
+  }
+
+  @override
+  void dispose() {
+    widget.themeController.themeNotifier.removeListener(_onThemeChanged);
+    super.dispose();
+  }
+
+  void _onThemeChanged() {
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      _showHint();
+    }
+  }
+
+  _showHint() {
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: const Duration(seconds: 10),
+          content: Text(
+            'Email: teste@email.com | Senha: 123456',
+            style:
+                widget
+                    .themeController
+                    .themeNotifier
+                    .value
+                    .textTheme
+                    .bodyMedium!,
+          ),
+          backgroundColor:
+              widget
+                  .themeController
+                  .themeNotifier
+                  .value
+                  .scaffoldBackgroundColor,
+        ),
+      );
+    }
+  }
+
   toggleLoading() {
     setState(() => isLoading = !isLoading);
   }
 
   // Simulação falha de login
   handleLoginFailed(BuildContext context, String? errorMessage) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -40,11 +90,11 @@ class _LoginPageState extends State<LoginPage> {
     BuildContext context,
     GlobalKey<FormState> formKey,
     UserModel payload,
-  ) {
+  ) async {
     toggleLoading();
     String? errorMessage;
     if (formKey.currentState!.validate()) {
-      final user = UserDao.getUserByEmail(payload.email);
+      final user = await UserDao.getUserByEmail(payload.email);
 
       if (payload.password != user?.password || user == null) {
         toggleLoading();
@@ -52,12 +102,11 @@ class _LoginPageState extends State<LoginPage> {
         return;
       }
 
-      Future.delayed(const Duration(seconds: 2), () {
-        toggleLoading();
-        if (context.mounted) {
-          Navigator.pushNamed(context, '/home');
-        }
-      });
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        Navigator.pushReplacementNamed(context, '/home');
+      }
+      return;
     }
     toggleLoading();
     handleLoginFailed(context, errorMessage);

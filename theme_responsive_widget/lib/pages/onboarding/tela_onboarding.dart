@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:theme_responsive_widget/pages/login/login_page.dart';
 import 'tela_onboarding1.dart';
 import 'package:onboarding/onboarding.dart';
 import 'tela_onboarding2.dart';
@@ -25,8 +24,8 @@ class _TelaOnboardingState extends State<TelaOnboarding> {
         children: [
           (Onboarding(
             swipeableBody: [
-              TelaOnboarding1(),
-              TelaOnboarding2(),
+              const TelaOnboarding1(),
+              const TelaOnboarding2(),
               TelaOnboarding3(themeController: widget.themeController),
               // Lista de widgets que podem ser arrastados horizontalmente
               // Cada widget representa uma tela de onboarding

@@ -13,6 +13,11 @@ class LightTheme {
         fontSize: 45,
         fontWeight: FontWeight.bold,
       ),
+      bodyMedium: TextStyle(
+        color: ColorsConst.darkThemeInputColor,
+        fontSize: 15,
+        fontWeight: FontWeight.w400,
+      ),
       bodySmall: TextStyle(
         fontFamily: 'Poppins',
         color: Color.fromARGB(255, 109, 109, 109),

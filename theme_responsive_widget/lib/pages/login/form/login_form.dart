@@ -114,7 +114,10 @@ class _LoginFormState extends State<LoginForm> with TickerProviderStateMixin {
                                 textSpan: 'Esqueceu a senha? ',
                                 textLink: 'Recuperar',
                                 onTap: () {
-                                  Navigator.pushNamed(
+                                  ScaffoldMessenger.of(
+                                    context,
+                                  ).hideCurrentSnackBar();
+                                  Navigator.pushReplacementNamed(
                                     context,
                                     '/forgot-password',
                                   );
@@ -125,7 +128,13 @@ class _LoginFormState extends State<LoginForm> with TickerProviderStateMixin {
                                 textSpan: 'Ainda não tem uma conta? ',
                                 textLink: 'Registrar',
                                 onTap: () {
-                                  Navigator.pushNamed(context, '/register');
+                                  ScaffoldMessenger.of(
+                                    context,
+                                  ).hideCurrentSnackBar();
+                                  Navigator.pushReplacementNamed(
+                                    context,
+                                    '/register',
+                                  );
                                 },
                               ),
                             ],

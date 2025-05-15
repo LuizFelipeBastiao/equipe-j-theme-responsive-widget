@@ -30,11 +30,7 @@ class SpanLinkText extends StatelessWidget {
               fontWeight: theme.textTheme.bodySmall!.fontWeight,
               color: ColorsConst.primaryColor,
             ),
-            recognizer:
-                TapGestureRecognizer()
-                  ..onTap = () {
-                    Navigator.pushNamed(context, '/register');
-                  },
+            recognizer: TapGestureRecognizer()..onTap = () => onTap(),
           ),
         ],
       ),
