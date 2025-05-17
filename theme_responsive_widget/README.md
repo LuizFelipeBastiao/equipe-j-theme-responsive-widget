@@ -16,7 +16,7 @@ Este é um projeto Flutter que visa oferecer uma experiência de usuário fluida
 
 ```bash
     Gilvan Emerson Sfredo Junior
-    Luiz Felipe
+    Luiz Felipe Bastião
 ```
 
 # Como rodar o projeto
